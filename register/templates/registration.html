@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Social Media - Registration Page </title>
+    </head>
+
+    <body>
+        <center>
+            {% for message in messages %}
+             <strong> Message: </strong> {{ message }}
+            {% endfor %}
+            <h1> Welcome to Registration Page </h1>
+            <br>
+            <br>
+            <form method="POST" action="registration">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Signup">
+            </form>
+        </center>
+    </body>
+</html>

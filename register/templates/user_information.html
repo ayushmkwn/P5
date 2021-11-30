@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Social Media - User Information Page </title>
+</head>
+
+<body>
+    <center>
+        {% for message in messages %}
+        <strong> Message: </strong> {{ message }}
+        {% endfor %}
+        <h1> Welcome to User Information Page </h1>
+        <br>
+        <br>
+        {% if id %}
+        <form method="POST" action="{% url 'userInfo' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ info_form.as_p }}
+            <input type="hidden" value="{{ id }}" name="uid">
+            <input type="submit" value="Submit">
+        </form>
+        {% endif %}
+    </center>
+</body>
+
+</html>

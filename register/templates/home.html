@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Social Media - Home Page </title>
+</head>
+
+<body>
+    <center>
+        {% for message in messages %}
+        <strong> Message: </strong> {{ message }}
+        {% endfor %}
+
+        <h1> Welcome </h1>
+        <br>
+        <br>
+
+        {% if user.is_authenticated %}
+        <h3> Hi! {{ name }} </h3>
+        <form method="POST" action="logout">
+            {% csrf_token %}
+            <input type="submit" value="Logout">
+        </form>
+
+        {% else %}
+        <h2> <a href="{% url 'registration' %}"> Registration </a></h2>
+        <br>
+        <br>
+        <h2> <a href="{% url 'login' %}"> Login </a></h2>
+        {% endif %}
+
+    </center>
+</body>
+
+</html>
